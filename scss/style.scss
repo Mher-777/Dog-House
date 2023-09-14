@@ -1,0 +1,198 @@
+@import 'defaults/_media.scss';
+@import 'defaults/_fonts.scss';
+@import 'defaults/_let.scss';
+@import 'defaults/_simple.scss';
+@import 'defaults/_animation.scss';
+
+.intro {
+    min-height: 100vh;  
+    overflow: hidden;
+    @include small-desktop {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    @include large-mobile {
+        min-height: auto;
+    }
+    &__parallax {   
+        top: -5rem;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+    }
+    &__bg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        &-image {
+            @include large-mobile {
+                object-position: -90rem
+            }
+        }
+    }
+    &__inner {
+        position: relative;
+        z-index: 1;
+        max-width: 111rem;
+        margin: 0 auto;
+        padding: 5rem 0 6rem;
+        text-align: center;
+
+        @include large-mobile {
+            z-index: 2;
+        }
+    }
+    &__logo {
+        animation: swing ease-in-out 2s infinite alternate;
+        @include small-desktop {
+            max-width: 80rem;
+            margin: 0 auto;
+        }
+
+        @include large-tablet {
+            max-width: 60rem;
+        }
+
+        @include large-mobile {
+            max-width: 39rem;
+        }
+    }
+    &__flares {
+        position: absolute;
+        max-width: 100rem;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-right: -50%;
+        bottom: -40rem;
+        z-index: 1;
+        img {
+            animation: rotate 10s linear infinite;
+            width: 100%;
+        }
+        @include small-desktop {
+            max-width: 70rem;
+            bottom: -25rem;
+        }
+        @include large-tablet {
+            max-width: 60rem;
+            bottom: -20rem;
+        }
+
+        @include large-mobile {
+            bottom: -12rem;
+        }
+    }
+    &__phone {
+        position: relative;
+        transform: rotate(11.532deg);   
+        max-width: 30rem;       
+        overflow: hidden;       
+        border-radius: 6rem;
+        margin: -8.5rem auto -14rem;
+        img {
+            width: 100%;
+        }
+        @include small-desktop {
+            max-width: 22rem;
+            border-radius: 3rem;
+            margin: -6.5rem auto -9rem;
+        }
+
+        @include large-tablet {
+            margin: -5rem auto -7rem;
+        }
+
+        @include large-mobile {
+            margin: -2rem auto -7rem;
+            max-width: 18.5rem;
+        }
+    }
+    &__video {
+        z-index: -1;
+        transform: scale(0.945);
+        border-radius: 3rem;
+    }
+    &__title {
+        -webkit-text-stroke: .3rem var(--dark-grayscale);
+        text-align: center;
+        text-shadow: 0 4.8rem 8rem rgba(26, 26, 26, 0.80), .4rem .4rem 3.2rem rgba(48, 30, 30, 0.30);
+        font-family: var(--font-foo);
+        font-size: 8.8rem;
+        line-height: .9em;
+        letter-spacing: -.17rem;
+        text-transform: uppercase;
+        color: var(--color-white);
+        position: relative;
+        z-index: 1;
+        span {
+            display: block;
+            color: var(--color-yellow);
+        }
+        @include small-desktop {
+            font-size: 6.5rem;
+        }
+
+        @include large-tablet {
+            font-size: 6rem;
+        }
+
+        @include large-mobile {
+            font-size: 4.4rem;
+            letter-spacing: -0.09rem;
+            -webkit-text-stroke: .1rem var(--dark-grayscale);
+        }
+    }
+    &__btn {
+        margin: 8rem 0 2rem;
+        animation-duration: 1s;
+        animation-direction: alternate;
+        animation-name: zoomIn;
+        animation-iteration-count: infinite;
+        @include small-desktop {
+            margin-top: 5rem;
+        }
+
+        @include large-mobile {
+            margin-top: 13.5rem;
+        }
+    }
+
+    &__left,
+    &__right {
+        position: absolute; 
+        z-index: 2;
+        bottom: 3rem;
+        max-width: 37rem;
+        @include small-desktop {
+            max-width: 25rem;
+        }
+
+        @include large-tablet {
+            max-width: 20rem;
+        }
+
+        @include large-mobile {
+            max-width: 14rem;
+            bottom: 8rem;   
+        }
+    }
+
+    &__left {
+        left: 0;
+        animation: fadeUpDown 3s alternate infinite;
+    }
+
+    &__right {
+        right: 0;
+        animation: fadeUpDown 2.5s alternate infinite;  
+        @include large-mobile {
+            right: -2rem;
+        }
+    }
+}
